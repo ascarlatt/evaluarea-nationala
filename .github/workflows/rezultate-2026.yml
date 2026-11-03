@@ -6,7 +6,7 @@ jobs:
       - name: Download schools
         run: curl --output-dir "data" --create-dirs "https://static.evaluare.edu.ro/2026/rezultate/{AB,OT}/data/school.json" -o "school-#1.json"
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v8
+        uses: actions/upload-artifact@v4
         with:
           name: Save data folder
           path: data
