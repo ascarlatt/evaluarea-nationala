@@ -1,0 +1,14 @@
+on: page_build
+jobs:
+  download_schools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download schools
+        run: curl --output-dir "data" --create-dirs "https://static.evaluare.edu.ro/2026/rezultate/{AB,OT}/data/school.json" -o "school-#1.json"
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v8
+        with:
+          name: Save data folder
+          path: data
+      - name: list
+        run: ls -lah data/
